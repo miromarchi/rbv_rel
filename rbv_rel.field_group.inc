@@ -13,6 +13,32 @@ function rbv_rel_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_relorg_data|node|relationorg|form';
+  $field_group->group_name = 'group_relorg_data';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'relation';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Dati',
+    'weight' => '2',
+    'children' => array(
+      0 => 'group_relorg_relation',
+      1 => 'group_relorg_description',
+    ),
+    'format_type' => 'tabs',
+    'format_settings' => array(
+      'formatter' => '',
+      'instance_settings' => array(
+        'classes' => 'group-relorg-data field-group-tabs',
+      ),
+    ),
+  );
+  $export['group_relorg_data|node|relationorg|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_relorg_description|node|relationorg|form';
   $field_group->group_name = 'group_relorg_description';
   $field_group->entity_type = 'node';
