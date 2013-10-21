@@ -4,7 +4,7 @@ Retebuonvivere: Relation content type
 
 Description
 -----------
-This is a [drupal feature] [2], which will install the *content type* Relation for retebuonvivere website, and all dependent settings (e.g. og_permissions, since this content type is an og_group). 
+This is a [drupal feature] [2], which will install the *content type* Relation for retebuonvivere website, and all dependent settings. 
 
 Submodule of
 ------------
