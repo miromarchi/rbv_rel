@@ -13,6 +13,13 @@ function rbv_rel_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_relation';
+  $strongarm->value = 'edit-auto-nodetitle';
+  $export['additional_settings__active_tab_relation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_relation';
   $strongarm->value = 0;
   $export['comment_anonymous_relation'] = $strongarm;
@@ -145,8 +152,36 @@ function rbv_rel_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_relation_pattern';
-  $strongarm->value = '';
+  $strongarm->value = 'relazioni/[node:title]';
   $export['pathauto_node_relation_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rdf_rdftype_relazione';
+  $strongarm->value = 'sioc:Item, foaf:Document';
+  $export['rdf_rdftype_relazione'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rdf_title_datatype_relazione';
+  $strongarm->value = '';
+  $export['rdf_title_datatype_relazione'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rdf_title_predicates_relazione';
+  $strongarm->value = 'dc:title';
+  $export['rdf_title_predicates_relazione'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rdf_title_type_relazione';
+  $strongarm->value = 'property';
+  $export['rdf_title_type_relazione'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -50,6 +50,7 @@ function rbv_rel_rdf_default_mappings() {
       'predicates' => array(
         0 => 'dc:title',
       ),
+      'type' => 'property',
     ),
     'created' => array(
       'predicates' => array(
