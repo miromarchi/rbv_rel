@@ -21,10 +21,10 @@ function rbv_rel_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Dati',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
-      0 => 'group_relorg_relation',
-      1 => 'group_relorg_description',
+      0 => 'group_relorg_description',
+      1 => 'group_relorg_relation',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -49,8 +49,8 @@ function rbv_rel_field_group_info() {
     'label' => 'Descrizione',
     'weight' => '9',
     'children' => array(
-      0 => 'field_com_foundingdate',
-      1 => 'field_com_description',
+      0 => 'field_com_description',
+      1 => 'field_com_foundingdate',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -133,8 +133,8 @@ function rbv_rel_field_group_info() {
     'weight' => '8',
     'children' => array(
       0 => 'field_rel_categories',
-      1 => 'field_rel_source',
-      2 => 'field_rel_target',
+      1 => 'field_rel_target',
+      2 => 'field_rel_source',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

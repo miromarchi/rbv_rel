@@ -124,7 +124,7 @@ function rbv_rel_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 1,
       ),
     ),
@@ -148,8 +148,10 @@ function rbv_rel_field_default_field_instances() {
   $field_instances['node-relation-field_rel_source'] = array(
     'bundle' => 'relation',
     'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
-    'description' => 'Selezionare la propria organizzazione.',
+    'description' => 'Selezionare la propria organizzazione.
+Attenzione: se si indica un soggetto diverso dalla propria organizzazione, la relazione verrà attribuita all\'organizzazione indicata (quindi non sarete più in grado di modificare la relazione e i suoi dati).',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -176,23 +178,26 @@ function rbv_rel_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'behaviors' => array(
-        'og_widget' => array(
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
+        'prepopulate' => array(
+          'action' => 'disable',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'og_context' => 0,
+          'skip_perm' => 0,
+          'status' => 1,
         ),
       ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'og',
-      'settings' => array(),
-      'type' => 'og_complex',
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
       'weight' => 9,
     ),
   );
@@ -201,8 +206,9 @@ function rbv_rel_field_default_field_instances() {
   $field_instances['node-relation-field_rel_target'] = array(
     'bundle' => 'relation',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
-    'description' => 'Selezionare l\'organizzazione con cui si intrattiene una relazione di collaborazione, o il progetto a cui si collabora.',
+    'description' => 'Selezionare l\'organizzazione con cui si coopera. La capacità di modificare i dati di questa relazione verrà estesa ad entrambe le organizzazioni facendo della relazione un contenuto condiviso.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -228,14 +234,92 @@ function rbv_rel_field_default_field_instances() {
     'label' => 'Soggetto 2',
     'required' => 1,
     'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-relation-og_group_ref'
+  $field_instances['node-relation-og_group_ref'] = array(
+    'bundle' => 'relation',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'og_ui',
+        'settings' => array(),
+        'type' => 'og_list_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'og_group_ref',
+    'label' => 'Groups audience',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'action' => 'hide',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'og_context' => 0,
+          'skip_perm' => 'administer group',
+          'status' => 1,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Full',
+        'type' => 'og_list_default',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Teaser',
+        'type' => 'og_list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 2,
     ),
   );
 
@@ -243,11 +327,13 @@ function rbv_rel_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Data di inizio');
   t('Descrizione della relazione');
+  t('Groups audience');
   t('Quando è iniziata questa relazione?');
   t('Relazione');
   t('Scegliere le parole chiave che caratterizzano la relazione.');
-  t('Selezionare l\'organizzazione con cui si intrattiene una relazione di collaborazione, o il progetto a cui si collabora.');
-  t('Selezionare la propria organizzazione.');
+  t('Selezionare l\'organizzazione con cui si coopera. La capacità di modificare i dati di questa relazione verrà estesa ad entrambe le organizzazioni facendo della relazione un contenuto condiviso.');
+  t('Selezionare la propria organizzazione.
+Attenzione: se si indica un soggetto diverso dalla propria organizzazione, la relazione verrà attribuita all\'organizzazione indicata (quindi non sarete più in grado di modificare la relazione e i suoi dati).');
   t('Soggetto 1');
   t('Soggetto 2');
 

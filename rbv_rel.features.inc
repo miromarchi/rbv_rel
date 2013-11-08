@@ -24,7 +24,7 @@ function rbv_rel_node_info() {
     'relation' => array(
       'name' => t('Relazione'),
       'base' => 'node_content',
-      'description' => t('Una relazione di collaborazione con un\'altra organizzazione, o ad un progetto della società civile.'),
+      'description' => t('Una relazione di collaborazione e cooperazione con un\'altra organizzazione della società civile.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
