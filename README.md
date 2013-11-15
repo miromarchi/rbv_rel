@@ -20,20 +20,19 @@ After this empasse we ended up with a different strategy: to permit users to ins
 * To permit wiki-like functionality: if a user wants to describe a relation between two organizations (none of which she is a member of), she can. 
 * But, the owners of the relation should always be the source and target groups! 
   This way they can do what they want with the relations they are mentioned in. 
+
 In this way we allow more people to gather data, but at the same time we have a way to manage possible conflicts.
 
 So how can this be done?
 * The audience field is prepopulated with the group being viewed. This is possible through a "create relation" link on the group home page and using [entityreference_prepopulate][6] module (which has automatic integration with og module).
-* We use [rules][] module. We have a rule with this settings:
+* We use [rules][5] module. We have a rule with this settings (I've posted a comment to this [issue][7]):
   Event: After saving new content of type Relazione
   Condition: none
   Action: Add entity to group | Parameter: Entity: [node], Group: [node:field-target]
 
-As you can see this rule covers only one feature: it extends audience to the target group.
+As you can see this rule covers only one piece: it extends audience to the target group (with no need to be site admin!).
 
-So there still is work to do: "if the source is different from the user's group, then add the source group to audience and cutoff the user's group from audience".
-
-
+So there still is work to do: "if the source is different from user's group, then add source group to audience and remove user's group from audience".
 
 Why not the [relation][4] module?
 ----------------------------------
@@ -52,3 +51,4 @@ This repository is a submodule of [retebuonvivere][1]
 [4]: https://drupal.org/project/relation
 [5]: https://drupal.org/project/rules
 [6]: https://drupal.org/project/entityreference_prepopulate
+[7]: https://drupal.org/comment/8155329#comment-8155329
