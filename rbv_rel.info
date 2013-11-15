@@ -37,7 +37,6 @@ features[field_instance][] = node-relation-field_rel_source
 features[field_instance][] = node-relation-field_rel_target
 features[field_instance][] = node-relation-og_group_ref
 features[node][] = relation
-features[rdf_mappings][] = node-relation
 features[rules_config][] = rules_extend_audience_to_subject2
 features[schemaorg][] = node-relation
 features[user_permission][] = create relation content
