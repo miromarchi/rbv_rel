@@ -45,6 +45,10 @@ Submodule of
 ------------
 This repository is a submodule of [retebuonvivere][1]
 
+Wiki
+----
+Go to the [relations system wiki][8] for more stuff about how we want to implement relations in this project.
+
 [1]: https://github.com/fonzy85vr/retebuonvivere
 [2]: https://drupal.org/project/features
 [3]: https://drupal.org/project/enityreference
@@ -52,3 +56,4 @@ This repository is a submodule of [retebuonvivere][1]
 [5]: https://drupal.org/project/rules
 [6]: https://drupal.org/project/entityreference_prepopulate
 [7]: https://drupal.org/comment/8155329#comment-8155329
+[8]: https://github.com/miromarchi/rbv_relations/wiki
