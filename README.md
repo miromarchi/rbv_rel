@@ -4,7 +4,7 @@ Retebuonvivere: Relation content type
 
 Description
 -----------
-This is a [drupal feature] [2], which will install the *content type* Relation for retebuonvivere website, and all dependent settings. 
+This is a [drupal feature][2], which will install the *content type* Relation for retebuonvivere website, and all dependent settings. 
 
 Functioning
 -----------
@@ -34,12 +34,14 @@ As you can see this rule covers only one piece: it extends audience to the targe
 
 So there still is work to do: "if the source is different from user's group, then add source group to audience and remove user's group from audience".
 
-Why not the [relation][4] module?
+Why not the relation module?
 ----------------------------------
 We have tried both relation and entityreference modules. 
-With relation module we could create simmetrical relations (like indeed collaborations among organizations), but we couldn't manage to have revisions of the relation fields. 
+With [relation module][4] we could create simmetrical relations (like indeed collaborations among organizations), but we couldn't manage to have revisions of the relation fields. 
 Moreover, we couldn't apply RDF mappings to the relation itself, as a RDF type, which is one of the goals of this project.
-Still we recognize that relation module is a great way for creating and managing relations. And it has visualization integration, which is very interesting to us.
+Still we recognize that relation module is a great way for creating and managing relations. And it has visualization integration, which is very interesting to us. 
+
+[Updates]: Actually we developed a new feature using the relation module: go to [rbv_relation][9]
 
 Submodule of
 ------------
@@ -47,7 +49,7 @@ This repository is a submodule of [retebuonvivere][1]
 
 Wiki
 ----
-Go to the [relations system wiki][8] for more stuff about how we want to implement relations in this project.
+Go to the [relation wiki][8] for more stuff about how we want to implement relations in this project.
 
 [1]: https://github.com/fonzy85vr/retebuonvivere
 [2]: https://drupal.org/project/features
@@ -57,3 +59,4 @@ Go to the [relations system wiki][8] for more stuff about how we want to impleme
 [6]: https://drupal.org/project/entityreference_prepopulate
 [7]: https://drupal.org/comment/8155329#comment-8155329
 [8]: https://github.com/miromarchi/rbv_relations/wiki
+[9]: https://github.com/miromarchi/rbv_relation
